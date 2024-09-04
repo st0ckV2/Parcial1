@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto1.Shared", "Proyecto1.Shared\Proyecto1.Shared.csproj", "{6036C674-A99E-48BD-B052-B0510DCBBBF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parcial1.Shared", "Proyecto1.Shared\Parcial1.Shared.csproj", "{6036C674-A99E-48BD-B052-B0510DCBBBF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parcial1.API", "Parcial1.API\Parcial1.API.csproj", "{F3D88BB0-0F51-4BB4-9C10-3D39F4AF78D0}"
 EndProject
