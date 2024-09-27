@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Parcial1.API.Controllers
 {
     [ApiController]
-    [Route("/api/branches")]
-    public class BranchesController : ControllerBase
+    [Route("/api/purchases")]
+    public class PurchasesController : ControllerBase
     {
         private readonly DataContext dataContext;
-        public BranchesController(DataContext dataContext)
+        public PurchasesController(DataContext dataContext)
         {
             this.dataContext = dataContext;
         }
@@ -18,15 +18,15 @@ namespace Parcial1.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
-            return Ok(await dataContext.Branches.ToListAsync());
+            return Ok(await dataContext.Purchases.ToListAsync());
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync(Branch branch)
+        public async Task<IActionResult> PostAsync(Purchase purchase)
         {
-            dataContext.Branches.Add(branch);
+            dataContext.Purchases.Add(purchase);
             await dataContext.SaveChangesAsync();
-            return Ok(branch);
+            return Ok(purchase);
         }
     }
 }
