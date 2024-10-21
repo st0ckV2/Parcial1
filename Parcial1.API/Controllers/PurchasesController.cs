@@ -28,5 +28,30 @@ namespace Parcial1.API.Controllers
             await dataContext.SaveChangesAsync();
             return Ok(sale);
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetAsync(int id)
+        {
+            return Ok(await dataContext.Purchases.FirstOrDefaultAsync(x => x.Id == id));
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Put(Purchase purchase)
+        {
+            dataContext.Purchases.Update(purchase);
+            await dataContext.SaveChangesAsync();
+            return Ok(purchase);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var afectedRows = await dataContext.Purchases.Where(x => x.Id == id).ExecuteDeleteAsync();
+            if (afectedRows == 0)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
     }
 }

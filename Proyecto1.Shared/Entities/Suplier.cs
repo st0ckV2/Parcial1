@@ -20,6 +20,6 @@ namespace Parcial1.Shared.Entities
         [Display(Name = "Información de contacto")]
         [MaxLength(300, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string contactInfo { get; set; } = null!;
-        public ICollection<Purchase>? Purchases { get; set; }
+        //public ICollection<Purchase>? Purchases { get; set; }
     }
 }

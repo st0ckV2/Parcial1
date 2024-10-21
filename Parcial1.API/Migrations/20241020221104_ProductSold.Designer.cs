@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Parcial1.API.Data;
 
@@ -10,9 +11,11 @@ using Parcial1.API.Data;
 namespace Parcial1.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241020221104_ProductSold")]
+    partial class ProductSold
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,6 +166,45 @@ namespace Parcial1.API.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Parcial1.Shared.Entities.ProductSold", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("SalesDetailId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("size")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<int>("soldQuantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SalesDetailId");
+
+                    b.ToTable("ProductsSold");
+                });
+
             modelBuilder.Entity("Parcial1.Shared.Entities.Purchase", b =>
                 {
                     b.Property<int>("Id")
@@ -305,6 +347,17 @@ namespace Parcial1.API.Migrations
                     b.Navigation("Branch");
                 });
 
+            modelBuilder.Entity("Parcial1.Shared.Entities.ProductSold", b =>
+                {
+                    b.HasOne("Parcial1.Shared.Entities.SalesDetail", "SalesDetail")
+                        .WithMany("ProductSold")
+                        .HasForeignKey("SalesDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SalesDetail");
+                });
+
             modelBuilder.Entity("Parcial1.Shared.Entities.Purchase", b =>
                 {
                     b.HasOne("Parcial1.Shared.Entities.Suplier", null)
@@ -365,6 +418,11 @@ namespace Parcial1.API.Migrations
             modelBuilder.Entity("Parcial1.Shared.Entities.Sale", b =>
                 {
                     b.Navigation("SalesDetails");
+                });
+
+            modelBuilder.Entity("Parcial1.Shared.Entities.SalesDetail", b =>
+                {
+                    b.Navigation("ProductSold");
                 });
 
             modelBuilder.Entity("Parcial1.Shared.Entities.Suplier", b =>

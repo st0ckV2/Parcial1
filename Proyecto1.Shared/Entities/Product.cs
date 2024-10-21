@@ -33,7 +33,7 @@ namespace Parcial1.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Display(Name = "Cantidad en existencia")]
         public int stockQuantity { get; set; }
-        public ICollection<PurchaseDetail>? PurchaseDetails { get; set; }
-        public ICollection<SalesDetail>? SalesDetails { get; set; }
+        //public ICollection<PurchaseDetail>? PurchaseDetails { get; set; }
+        //public ICollection<SalesDetail>? SalesDetails { get; set; }
     }
 }

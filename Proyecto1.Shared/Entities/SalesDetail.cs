@@ -26,7 +26,6 @@ namespace Parcial1.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Display(Name = "Precio unitario")]
         public int uintPrice { get; set; }
-        public Product? Product { get; set; }
-        public Sale? Sale { get; set; }
+        public Sale Sale { get; set; } = null!;
     }
 }

@@ -27,7 +27,8 @@ namespace Parcial1.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         [Display(Name = "Monto total")]
         public int totalAmount { get; set; }
-        public Customer? Customer { get; set; }
+        public Customer Customer { get; set; } = null!;
         public ICollection<SalesDetail>? SalesDetails { get; set; }
+        //public Customer Customer { get; set; } = null!;
     }
 }

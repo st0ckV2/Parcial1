@@ -25,6 +25,6 @@ namespace Parcial1.Shared.Entities
         [Display(Name = "Fecha de contratación en DD/MM/AAAA")]
         [MaxLength(10, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string hireDate { get; set; } = null!;
-        public Branch? Branch { get; set; }
+        
     }
 }

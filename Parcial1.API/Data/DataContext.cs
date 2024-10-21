@@ -22,7 +22,16 @@ namespace Parcial1.API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Assignment>();
             modelBuilder.Entity<Branch>().HasIndex(x => x.Name).IsUnique();
+            modelBuilder.Entity<Customer>();
+            modelBuilder.Entity<Employee>();
+            modelBuilder.Entity<Product>();
+            modelBuilder.Entity<Purchase>();
+            modelBuilder.Entity<PurchaseDetail>();
+            modelBuilder.Entity<Sale>();
+            modelBuilder.Entity<SalesDetail>();
+            modelBuilder.Entity<Suplier>();
         }
     }
 }

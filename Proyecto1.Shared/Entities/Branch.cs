@@ -20,6 +20,7 @@ namespace Parcial1.Shared.Entities
         [Display(Name = "Ubicación de la sucursal")]
         [MaxLength(300, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string Location { get; set; } = null!;
-        public ICollection<Employee>? Employees { get; set; }
+
+        public ICollection<Assignment>? Assignments { get; set; }
     }
 }
